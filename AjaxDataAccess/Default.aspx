@@ -17,15 +17,15 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script id="productTemplate" type="text/html">
-        <tr><th>Product Name</th><th>Unit Price</th></tr>
+        <tr><th class="text-left">Product Name</th><th class="text-right">Unit Price</th></tr>
         {{#arr}}
-            <tr><td>{{ProductName}}</td><td>{{UnitPrice}}</td></tr>
+            <tr><td class="text-left">{{ProductName}}</td><td class="text-right">${{UnitPrice}}</td></tr>
         {{/arr}}
     </script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <table id="productListTable" class="table table-striped" style="width:50%">
+        <table id="ProductListTable" class="table table-striped table-bordered" style="width:50%;margin:auto;">
             <tbody>
 
             </tbody>

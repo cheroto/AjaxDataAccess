@@ -19,5 +19,10 @@ namespace AjaxDataAccess.DAL
 
             return _context.Products.ToList();
         }
+        
+        internal static void AddProduct()
+        {
+
+        }
     }
 }

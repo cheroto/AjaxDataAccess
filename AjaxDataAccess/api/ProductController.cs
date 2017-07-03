@@ -17,5 +17,11 @@ namespace AjaxDataAccess.api
 
             return result;
         }
+
+        public void AddProduct()
+        {
+            var pr = new ProductRepository(AjaxConnections.ConnectionString);
+            
+        }
     }
 }
