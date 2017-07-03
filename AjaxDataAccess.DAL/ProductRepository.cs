@@ -16,6 +16,7 @@ namespace AjaxDataAccess.DAL
         }
         public IList<Product> GetAll()
         {
+
             return _context.Products.ToList();
         }
     }
