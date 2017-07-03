@@ -14,15 +14,20 @@ namespace AjaxDataAccess.DAL
         {
             _context = new AjaxContext(connectionString);
         }
+
         public IList<Product> GetAll()
         {
 
             return _context.Products.ToList();
         }
-        
-        internal static void AddProduct()
-        {
 
+
+
+        public void Add(Product prod)
+        {
+            _context.Products.Add(prod);
+            _context.SaveChanges();
         }
+
     }
 }

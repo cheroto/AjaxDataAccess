@@ -18,10 +18,11 @@ namespace AjaxDataAccess.api
             return result;
         }
 
-        public void AddProduct()
+
+        public void Add(Product prod)
         {
             var pr = new ProductRepository(AjaxConnections.ConnectionString);
-            
+            pr.Add(prod);
         }
     }
 }

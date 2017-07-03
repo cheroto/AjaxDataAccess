@@ -16,7 +16,11 @@ namespace AjaxDataAccess
             config.MapHttpAttributeRoutes();
             RouteTable.Routes.MapHttpRoute(
                 name: "defaultRoute",
-                routeTemplate: "api/{controller}/{action}"
+                routeTemplate: "api/{controller}/{action}",
+                defaults: new
+                {
+                    action = RouteParameter.Optional
+                }
                 );
 
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = true;

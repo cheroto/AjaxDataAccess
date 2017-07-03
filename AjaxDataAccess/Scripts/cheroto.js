@@ -1,4 +1,17 @@
 ﻿$(document).ready(function () {
+    var prod = {};
+    prod.ProductName = "Happy Day Waterproof Vibrator 1";
+    prod.UnitPrice = 355.5;
+    $.ajax({
+        datatype: "json",
+        type:"POST",
+        url: "/api/product/add",
+        data: JSON.stringify(prod),
+        dataType: "json",
+        success: function () {
+            console.log("Added Data");
+        }
+    })
     $.ajax({
         datatype: "json",
         url: "/api/product/getall",
