@@ -6,7 +6,7 @@
         datatype: "json",
         type:"POST",
         url: "/api/product/add",
-        data: JSON.stringify(prod),
+        data: prod,
         dataType: "json",
         success: function () {
             console.log("Added Data");
