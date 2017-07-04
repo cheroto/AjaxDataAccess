@@ -18,7 +18,7 @@ namespace AjaxDataAccess.api
             return result;
         }
 
-
+        [HttpPost]
         public void Add(Product prod)
         {
             var pr = new ProductRepository(AjaxConnections.ConnectionString);

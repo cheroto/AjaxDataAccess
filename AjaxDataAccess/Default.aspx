@@ -31,10 +31,40 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <table id="ProductListTable" class="table table-striped table-bordered" style="width: 50%; margin: auto;">
-            <tbody>
-            </tbody>
-        </table>
+        <div>
+            <table class="table table-bordered" style="width: 50%; margin: auto">
+                <tr>
+                    <th colspan="2" style="text-align: center;">Add Product</th>
+                </tr>
+                <tr>
+                    <td>Product Name  
+                    </td>
+                    <td>
+                        <input type="text" id="txtProductName" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unit Price  
+                    </td>
+                    <td>
+                        <input type="text" id="txtUnitPrice" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center" colspan="2">
+                        <button id="btnSave">Submit</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="alert alert-success" id="success-alert" style="margin:auto;">
+            </div>
+            <table id="ProductListTable" class="table table-striped table-bordered" style="width: 50%; margin: auto;">
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <br />
+        <br />
     </form>
 </body>
 </html>
