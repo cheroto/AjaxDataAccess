@@ -18,7 +18,7 @@ namespace AjaxDataAccess.DAL
         public IList<Product> GetAll()
         {
 
-            return _context.Products.ToList();
+            return _context.Products.OrderBy(p => p.ProductName).ToList();
         }
 
 
