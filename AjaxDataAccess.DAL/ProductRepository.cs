@@ -25,7 +25,14 @@ namespace AjaxDataAccess.DAL
 
         public void Add(Product prod)
         {
-            _context.Products.Add(prod);
+            _context.Products.Add(prod); 
+            _context.SaveChanges();
+        }
+
+        public void Delete(int ID)
+        {
+            var p = _context.Products.Find(ID);
+            _context.Products.Remove(p);
             _context.SaveChanges();
         }
 

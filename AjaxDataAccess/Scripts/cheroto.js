@@ -34,6 +34,41 @@
 
     }       
 
+    function DeleteProduct() {
+
+        var prod = {};
+        prod.ProductID = 112;
+        prod.ProductName = "Abraham Lincoln's Hat";
+        prod.UnitPrice = 13.99;
+        console.log(prod.ProductName);
+        console.log(prod.UnitPrice);
+
+        $.ajax({
+            url: "/api/product/delete",
+            type: "POST",
+            data: prod,
+            dataType: "json",
+            success: function () {
+
+                console.log(prod);
+                Update();
+                console.log("Added data!");
+                $("#success-alert").html('<strong>Success! </strong>Product has been deleted!');
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#success-alert").slideUp(500);
+                });
+
+            },
+
+            error: function () {
+                console.log("something went wrong");
+                alert("Something terrible has happened!")
+
+            }
+        });
+
+    }       
+
     function Update() {
         $.ajax({
             datatype: "json",
@@ -66,6 +101,12 @@
     $("#btnSave").click(function (e) {
 
         AddProduct();
+        e.preventDefault();
+
+    }); 
+    $("#btnDelete").click(function (e) {
+
+        DeleteProduct();
         e.preventDefault();
 
     }); 

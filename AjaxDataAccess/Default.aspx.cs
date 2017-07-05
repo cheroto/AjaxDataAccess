@@ -15,11 +15,7 @@ namespace AjaxDataAccess
         protected void Page_Load(object sender, EventArgs e)
         {
             var pr = new ProductRepository(AjaxConnections.ConnectionString);
-            Product p = new Product
-            {
-                ProductName = "Happy Day Waterproof Vibrator",
-                UnitPrice = 350.5M
-            };
+
 
             var result = pr.GetAll();
         }

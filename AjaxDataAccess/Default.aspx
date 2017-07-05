@@ -52,7 +52,8 @@
                 </tr>
                 <tr>
                     <td style="text-align: center" colspan="2">
-                        <button id="btnSave">Submit</button>
+                        <button id="btnSave">Add</button>
+                        <button id="btnDelete">Delete</button>
                     </td>
                 </tr>
             </table>
