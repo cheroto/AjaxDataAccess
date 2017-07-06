@@ -26,10 +26,12 @@ namespace AjaxDataAccess.api
         }
 
         [HttpPost]
-        public void Delete(int ID)
+        public void Delete(Product prod)
         {
+
+            int id = Convert.ToInt32(prod.ProductID);
             var pr = new ProductRepository(AjaxConnections.ConnectionString);
-            pr.Delete(ID);
+            pr.Delete(id);
         }
     }
 }

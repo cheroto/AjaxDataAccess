@@ -15,7 +15,7 @@ namespace AjaxDataAccess
         protected void Page_Load(object sender, EventArgs e)
         {
             var pr = new ProductRepository(AjaxConnections.ConnectionString);
-
+            //pr.Delete(112);
 
             var result = pr.GetAll();
         }
