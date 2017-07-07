@@ -29,7 +29,7 @@ namespace AjaxDataAccess.api
         public void Delete(Product prod)
         {
 
-            int id = Convert.ToInt32(prod.ProductID);
+            int id = prod.ProductID;
             var pr = new ProductRepository(AjaxConnections.ConnectionString);
             pr.Delete(id);
         }

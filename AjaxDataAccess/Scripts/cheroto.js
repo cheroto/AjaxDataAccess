@@ -34,10 +34,16 @@
 
     }       
 
-    function DeleteProduct() {
+
+    $(document).on("click", ".btn-delete", function () {
+        DeleteProduct(this);
+    });
+
+    function DeleteProduct(button) {
 
         var prod = {};
-        prod.ProductID = $("#txtProductID").val();
+        console.log(button);
+        prod.ProductID = $(button).val();
 
         $.ajax({
             url: "/api/product/delete",

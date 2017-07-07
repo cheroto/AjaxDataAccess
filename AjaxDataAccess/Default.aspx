@@ -24,7 +24,7 @@
         {{#arr}}
             <tr>
                 <td class="text-left">{{ProductName}}</td>
-                <td class="text-right">${{UnitPrice}}</td>
+                <td class="text-right">${{UnitPrice}}</td><td><button type="button" class="btn btn-delete btn-default" value="{{ProductID}}">Delete</button></td>
             </tr>
         {{/arr}}
     </script>
@@ -55,7 +55,7 @@
                         <button id="btnSave">Add</button>
                         <input type="text" id="txtProductID" />
 
-                        <button id="btnDelete">Delete</button>
+                        <button type="button" id="btnDelete">Delete</button>
                     </td>
                 </tr>
             </table>
