@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
     $("#success-alert").hide();
+
+    //Ajax call to add product to database
     function AddProduct() {
 
         var prod = {};
@@ -16,7 +18,7 @@
             success: function () {
 
                 console.log(prod);
-                Update();
+                Replot();
                 console.log("Added data!");
                 $("#success-alert").html('<strong>Success! </strong>Product has been added!');
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
@@ -34,11 +36,12 @@
 
     }       
 
-
+    //Add onclick delete function to delete buttons
     $(document).on("click", ".btn-delete", function () {
         DeleteProduct(this);
     });
 
+    //Ajax call to delete product from database
     function DeleteProduct(button) {
 
         var prod = {};
@@ -54,7 +57,7 @@
             success: function () {
 
                 console.log(prod);
-                Update();
+                Replot();
                 console.log("deleted data!");
                 $("#success-alert").html('<strong>success! </strong>product has been deleted!');
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
@@ -70,9 +73,52 @@
             }
         });
 
-    }       
+    }   
 
-    function Update() {
+    //Add onclick function to update button
+    $("#updateBtn").click(function ()
+    {
+        UpdateProduct();
+    });
+    //Ajax call to update product in database
+    function UpdateProduct() {
+
+        var prod = {};
+        prod.ProductID = 1108;
+        prod.ProductName = "Abelha Feliz Modified";
+        prod.UnitPrice = 150;
+        //console.log(button);
+        //prod.ProductID = $(button).val();
+
+        $.ajax({
+            url: "/api/product/update",
+            type: "POST",
+            data: prod,
+            //data: "{id:"+prod.ProductID+"}",  
+            datatype: "json",
+            success: function () {
+
+                console.log(prod);
+                Replot();
+                console.log("deleted data!");
+                $("#success-alert").html('<strong>success! </strong>product has been deleted!');
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#success-alert").slideUp(500);
+                });
+
+            },
+
+            error: function () {
+                console.log("something went wrong");
+                alert("Something terrible has happened!")
+
+            }
+        });
+
+    }    
+
+    //Replot product list
+    function Replot() {
         $.ajax({
             datatype: "json",
             url: "/api/product/getall",
@@ -113,5 +159,5 @@
         e.preventDefault();
 
     }); 
-    Update();
+    Replot();
 })

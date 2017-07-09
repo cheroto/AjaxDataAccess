@@ -33,5 +33,12 @@ namespace AjaxDataAccess.api
             var pr = new ProductRepository(AjaxConnections.ConnectionString);
             pr.Delete(id);
         }
+
+        [HttpPost]
+        public void Update(Product prod)
+        {
+            var pr = new ProductRepository(AjaxConnections.ConnectionString);
+            pr.Update(prod);
+        }
     }
 }

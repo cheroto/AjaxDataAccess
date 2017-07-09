@@ -32,7 +32,16 @@ namespace AjaxDataAccess.DAL
         public void Delete(int ID)
         {
             var p = _context.Products.Find(ID);
+            
             _context.Products.Remove(p);
+            _context.SaveChanges();
+        }
+
+        public void Update(Product prod)
+        {
+            var p = _context.Products.Find(prod.ProductID);
+            p.ProductName = prod.ProductName;
+            p.UnitPrice = prod.UnitPrice;
             _context.SaveChanges();
         }
 

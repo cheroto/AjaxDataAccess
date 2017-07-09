@@ -32,6 +32,29 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
             <table class="table table-bordered" style="width: 50%; margin: auto">
                 <tr>
                     <th colspan="2" style="text-align: center;">Add Product</th>
@@ -53,13 +76,11 @@
                 <tr>
                     <td style="text-align: center" colspan="2">
                         <button id="btnSave">Add</button>
-                        <input type="text" id="txtProductID" />
-
-                        <button type="button" id="btnDelete">Delete</button>
+                        <button type ="button" id="updateBtn">Update Abelha Feliz</button>
                     </td>
                 </tr>
             </table>
-            <div class="alert alert-success" id="success-alert" style="width:50%; text-align:center; margin:auto;">
+            <div class="alert alert-success" id="success-alert" style="width: 50%; text-align: center; margin: auto;">
             </div>
             <table id="ProductListTable" class="table table-striped table-bordered" style="width: 50%; margin: auto;">
                 <tbody>
