@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="Scripts/styles.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.1.1.min.js"></script>
     <script src="Scripts/cheroto.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
@@ -20,21 +21,55 @@
         <tr>
             <th class="text-left">Product Name</th>
             <th class="text-right">Unit Price</th>
+            <th class="text-center">Options</th>
         </tr>
         {{#arr}}
             <tr>
                 <td class="text-left">{{ProductName}}</td>
-                <td class="text-right">${{UnitPrice}}</td><td><button type="button" class="btn btn-delete btn-default" value="{{ProductID}}">Delete</button></td>
+                <td class="text-right">${{UnitPrice}}</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-delete btn-default" value="{{ProductID}}">Del</button>
+                    <button type="button" class="btn btn-update btn-default" value="{{ProductID}}"
+                        data-toggle="modal" data-target="#myModal">
+                        Updt</button>
+                </td>
             </tr>
         {{/arr}}
     </script>
 </head>
 <body>
+    <br />
     <form id="form1" runat="server">
+        <button type="button" id="addButton" class="btn btn-default btn-topRight"
+            data-toggle="modal" data-target="#addProductModal">
+            Add Product</button>
         <div>
             <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+            <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+            <!-- Modal -->
+            <div id="addProductModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add Product</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div>Product Name</div>
+                            <input type="text" id="txtProductName" value="" />
+                            <div>Unit Price</div>
+                            <input type="text" id="txtUnitPrice" value="" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="btnSave" class="btn btn-default" data-dismiss="modal">Add</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
@@ -43,43 +78,23 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
+                            <h4 class="modal-title">Update Product</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Some text in the modal.</p>
+                            <input type="hidden" id="updateProductID" value="" />
+                            <div>New Name</div>
+                            <input type="text" id="newProductName" value="" />
+                            <div>New Price</div>
+                            <input type="text" id="newUnitPrice" value="" />
                         </div>
                         <div class="modal-footer">
+                            <button type="button" id="updateProduct" class="btn btn-default" data-dismiss="modal">Update</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
                     </div>
 
                 </div>
             </div>
-            <table class="table table-bordered" style="width: 50%; margin: auto">
-                <tr>
-                    <th colspan="2" style="text-align: center;">Add Product</th>
-                </tr>
-                <tr>
-                    <td>Product Name  
-                    </td>
-                    <td>
-                        <input type="text" id="txtProductName" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Unit Price  
-                    </td>
-                    <td>
-                        <input type="text" id="txtUnitPrice" />
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: center" colspan="2">
-                        <button id="btnSave">Add</button>
-                        <button type ="button" id="updateBtn">Update Abelha Feliz</button>
-                    </td>
-                </tr>
-            </table>
             <div class="alert alert-success" id="success-alert" style="width: 50%; text-align: center; margin: auto;">
             </div>
             <table id="ProductListTable" class="table table-striped table-bordered" style="width: 50%; margin: auto;">

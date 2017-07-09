@@ -59,7 +59,7 @@
                 console.log(prod);
                 Replot();
                 console.log("deleted data!");
-                $("#success-alert").html('<strong>success! </strong>product has been deleted!');
+                $("#success-alert").html('<strong>Success! </strong>product has been deleted!');
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
                     $("#success-alert").slideUp(500);
                 });
@@ -76,17 +76,33 @@
     }   
 
     //Add onclick function to update button
-    $("#updateBtn").click(function ()
+    $(document).on("click", ".btn-update", function()
     {
-        UpdateProduct();
-    });
-    //Ajax call to update product in database
-    function UpdateProduct() {
+        $("#updateProductID").val($(this).val());
+        var name = $(this).closest('td').prev('td').prev('td').text();
+        $("#newProductName").val(name);
+        var price = $(this).closest('td').prev('td').text().substring(1);
+        $("#newUnitPrice").val(price);
 
-        var prod = {};
-        prod.ProductID = 1108;
-        prod.ProductName = "Abelha Feliz Modified";
-        prod.UnitPrice = 150;
+    });
+    $("#updateProduct").click(function ()
+    {
+        prod = {};
+        prod.ProductID = $("#updateProductID").val();
+        prod.ProductName = $("#newProductName").val();
+        prod.UnitPrice = $("#newUnitPrice").val();
+        UpdateProduct(prod);
+        console.log($("updateProductName").val());
+        console.log($("updateUnitPrice").val());
+    })
+
+    //Ajax call to update product in database
+    function UpdateProduct(prod) {
+
+        //var prod = {};
+        //prod.ProductID = 1108;
+        //prod.ProductName = "Abelha Feliz Modified";
+        //prod.UnitPrice = 150;
         //console.log(button);
         //prod.ProductID = $(button).val();
 
@@ -101,7 +117,7 @@
                 console.log(prod);
                 Replot();
                 console.log("deleted data!");
-                $("#success-alert").html('<strong>success! </strong>product has been deleted!');
+                $("#success-alert").html('<strong>Success! </strong>product has been updated!');
                 $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
                     $("#success-alert").slideUp(500);
                 });

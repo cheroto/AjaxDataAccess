@@ -79,7 +79,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="addproducts.aspx" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
     <Content Include="Scripts\cheroto.js" />
@@ -100,16 +99,10 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\mustache.js" />
+    <Content Include="Scripts\styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addproducts.aspx.cs">
-      <DependentUpon>addproducts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="addproducts.aspx.designer.cs">
-      <DependentUpon>addproducts.aspx</DependentUpon>
-    </Compile>
     <Compile Include="api\ProductController.cs" />
     <Compile Include="App_Data\AjaxConnections.cs" />
     <Compile Include="Default.aspx.cs">
